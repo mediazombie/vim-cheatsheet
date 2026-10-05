@@ -1,0 +1,6 @@
+# Ignoriere meine private Notizdatei
+tutor
+
+# Ignoriere alle temporären Notizdateien in diesem Ordner
+*.tmp
+ToDo.md
