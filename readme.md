@@ -93,7 +93,6 @@ Gleiches funktioniert auch zum löschen von mehr als einer Zeile `dd` (löscht d
 ### Spezielle Bewegungsfunktionen
 
 Es gibt zudem noch einige spezielle Bewegungsfunktionen um sich noch schneller bzw. komfortabler durch ein Dokument zu bewegen (siehe nachfolgende Tabelle):
-Test, test, test, test, test, *test*, *test*, *test*.
 
 | Eingabe | Funktion |
 | :---: | :--- |
@@ -226,10 +225,8 @@ Es können auch nur Suchbegriffe auf mehreren, spezifischen und aufeinader folge
 
 > [!NOTE]
 > Neovim ist hystorisch gesehen die umfangreichste und aktuellste Version, die aus Vi bzw. Vim abgeleteitet wurde.
-> LazyVim hingegen ist eine sehr mächtige Erweiterung zu Neovim, wodurch Nevim noch mächtiger und quasi zu einer vollwertigen IDE (Entwicklungsumgebung) wird.
+> LazyVim hingegen ist eine sehr mächtige Erweiterung zu Neovim, wodurch Neovim noch mächtiger und quasi zu einer vollwertigen IDE (Entwicklungsumgebung) wird.
 
 | Eingabe | Funktion |
 | :---: | :--- |
 | `Space-u-s` | Rechtschreibprüfung deaktivieren |
-
---> Zeile 557!
