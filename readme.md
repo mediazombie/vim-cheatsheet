@@ -183,8 +183,53 @@ Durch tippen von `%` während der Cursor auf einer Klammer `(`, `[` oder `{` ste
 
 ### Ersetzen (Substitute)
 
-Hier, wie bei den meisten Befehlen, ebenfalls darauf achten, dass man sich im `Normal`-Modus befindet.
-Wenn du `:s/alt/neu/g` tippst, wird auf der aktuellen Zeile nach dem Begriff `alt` gesucht und dieser durch `neu` ersetzt. Das `/g` am Ende der Eingabe bedeutet, dass die ganze aktuelle Zeile bzw. der Absatz durchsucht und jeder gefundene Begriff `alt` direkt durch `neu` ersetzt wird.
-Um das ganze Dokument nach einem Begriff (z.B. Variablenname) zu durchsuchen und zu ersetzen, tippst du `:%s/alt/neu/g`. Um nicht direkt alles zu ersetzen, sondern mittels Abfrage zu jedem gefunden Begriff zu ersetzen, tippst du `%s/alt/neu/gc`. Dadurch wirst du bei jedem gefundenen Begriff, mittels Abfragedialog, gefragt, ob dieser ersetzt werden soll oder nicht.
+Hier, wie bei den meisten Befehlen, ebenfalls darauf achten, dass man sich im `Normal`-Modus befindet.  
+Wenn du `:s/alt/neu/g` tippst, wird auf der aktuellen Zeile nach dem Begriff `alt` gesucht und dieser durch `neu` ersetzt. Das `/g` am Ende der Eingabe bedeutet, dass die ganze aktuelle Zeile bzw. der Absatz durchsucht und jeder gefundene Begriff `alt` direkt durch `neu` ersetzt wird.  
+Um das ganze Dokument nach einem Begriff (z.B. Variablenname) zu durchsuchen und zu ersetzen, tippst du `:%s/alt/neu/g`. Um nicht direkt alles zu ersetzen, sondern mittels Abfrage zu jedem gefunden Begriff zu ersetzen, tippst du `%s/alt/neu/gc`. Dadurch wirst du bei jedem gefundenen Begriff, mittels Abfragedialog, gefragt, ob dieser ersetzt werden soll oder nicht.  
 Es können auch nur Suchbegriffe auf mehreren, spezifischen und aufeinader folgenden Zeilen ersetzt werden. Hierfür tippst du einfach `:#,#s/alt/neu/g`, wobei `#,#` die Zeilennummern des Bereichs sind. Auch hier kannst du stattdessen `:#,#s/alt/neu/gc` eingeben, damit bei jedem Treffer ein Abfragedialog angezeigt wird.
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `:s/alt/neu/g` | In aktueller Zeile nach dem Begriff `alt` suchen und jeden Treffer (`/g`) durch `neu` ersetzen |
+| `:%s/alt/neu/gc` | Im aktuellen Dokument nach dem Begriff `alt` suchen und diesen mittels Abfragedialog durch `neu` ersetzen - `../gc` bedeutet `g`=Global (alle Treffer je Zeile, nicht nur den Ersten) und `c` mittels Abfragedialog |
+| `:#,#s/alt/neu/g` | In aufeinander folgenden Zeilen `#,#`, wobei `#,#` für die einzuschliessenden Zeilennummern steht, `alt` durch `neu` ersetzen und `/g` dabei alle Treffer berücksichtigen (nicht nur den Ersten) |
+
+## Spezielle Befehle (Vertiefung)
+
+### Umgang mit Buffers und Fenstern
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `:vsplit Datei` | Vim kann auch geteilte Fenster! Öffnet die `Datei` in der rechten Fensterhälfte |
+| `:hsplit Datei` | Öffnet die `Datei` in der unteren Fensterhälfte |
+| `Ctrl-h` | In das linke Fenster (Fensterhälfte) wechseln - funktioniert mit allen Bewegungstasten `h, j, k, l` (teilweise, je nach Konfiguration muss `Ctrl-w-h` oder ähnlich verwendet werden) |
+| `Shift-h` | Durch Tabs/Buffer schalten - vorheriger Buffer |
+| `Shift-l` | Durch Tabs/Buffer schalten - nächster Buffer |
+| `:b#` | Wechselt direkt zum zuletzt genutzten Buffer |
+| `Space-f-b` | Durchsuchbare Liste mit allen offenen Buffern anzeigen - funktioniert nur mit LazyVim |
+
+> [!NOTE]
+> Mit Buffer sind geöffnete Dateien in der aktuellen Vim-Sitzung gemeint!
+> Man kann in Vim mehrere Dateien gleichzeitig geöffnet haben und dann mit den entsprechenden Befehlen zwischen diesen hin und her wechseln, auch wenn diese ggf. nicht direkt sichtbar sind.
+
+### Bearbeiten, Speichern und Schliessen
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `:e pfad/datei` | Wenn Vim bereits geöffnet ist, eine Datei im aktuellen Verzeichnis oder aus einem anderen Verzeichnis zum bearbeiten öffnen |
+| `:w` | Aktuelle Datei (Buffer) die auf dem Bildschirm sichtbar bzw. aktiv ist speichern |
+| `:q` | Aktuell am Bildschirm sichtbares bzw. aktives Fenster schliessen - enthält dieses nicht gespeicherte Änderungen, wird eine entsprechende Meldung ausgegeben (Datei ist jedoch nach wie vor im Buffer) |
+| `:bd` | Aktuellen Buffer schliessen (Datei ist anschliessend nicht mehr im Speicher) |
+| `:bd #` | Buffer mit Nummer `#` schliessen |
+
+### Rechtschreibprüfung deaktivieren (nur Neovim mit LazyVim)
+
+> [!NOTE]
+> Neovim ist hystorisch gesehen die umfangreichste und aktuellste Version, die aus Vi bzw. Vim abgeleteitet wurde.
+> LazyVim hingegen ist eine sehr mächtige Erweiterung zu Neovim, wodurch Nevim noch mächtiger und quasi zu einer vollwertigen IDE (Entwicklungsumgebung) wird.
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `Space-u-s` | Rechtschreibprüfung deaktivieren |
+
 --> Zeile 557!
