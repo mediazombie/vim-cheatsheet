@@ -5,3 +5,6 @@ tutor
 *.tmp
 *.swp
 ToDo.md
+
+# Ignoriere Unterordner
+foss/
