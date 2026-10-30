@@ -23,6 +23,18 @@ Hier sind noch 2 weitere Quellen (Englisch) zum lernen von Vim:
 * [Vim School](https://vimschool.netlify.app/)
 * [Getting started with Vim](https://opensource.com/article/19/3/getting-started-vim)
 
+## Die Modi von Vim
+
+Hier sind die wichtigsten Modi von Vim:
+
+* Normal-Modus `Esc`: Der Standardmodus für effiziente Navigation, Löschen und Textmanipulation.
+* Insert-Modus `i`: Modus zum direkten Schreiben und Einfügen von neuem Text.
+* Visual-Modus `v`: Erlaubt das zeichen- (`v`), zeilen- (`Shift-v`) oder blockweise (`Ctrl-v`) Auswählen von Textpassagen.
+* Comand-Line-Modus: Eingabe von Befehlen wie z.B. Speichern (`:w`) oder Suchen (`/`).
+
+> [!NOTE]
+> Im Visual-Modus kann mittels `o` zwischen dem Anfang der Markierung und dem Ende hin und her gesprungen werden. Dies kann hilfreich sein, wenn man oberhalb oder unterhalb der Markierung noch was in die Markierung einschliessen möchte.
+
 ## Bewegen des Cursors
 
 Um den Cursor zu bewegen, nutze die Tasten `h, j, k und l`
@@ -50,6 +62,8 @@ Um Text in Vim zu editieren, muss in den `Insert`-Modus gewechselt werden. Die g
 | :---: | :--- |
 | `i` | Text vor der Cursor-Position einfügen |
 | `a` | Text hinter der Cursor-Position einfügen |
+| `Shift-i` | Springt zum ersten sichtbaren (Nicht-Leerzeichen-)Zeichen der Zeile und startet dort den Insert-Modus |
+| `Shift-a` | Springt hinter das letzte Zeichen der Zeile und startet dort sofort den Insert-Modus (Anhängen) |
 | `x` | Zeichen unter dem Cursor löschen |
 | `r` | Zeichen unter dem Cursor ändern |
 
@@ -94,21 +108,69 @@ Gleiches funktioniert auch zum löschen von mehr als einer Zeile `dd` (löscht d
 
 Es gibt zudem noch einige spezielle Bewegungsfunktionen um sich noch schneller bzw. komfortabler durch ein Dokument zu bewegen (siehe nachfolgende Tabelle):
 
+#### Vertikale Bewegung
+
 | Eingabe | Funktion |
 | :---: | :--- |
 | `G` | An das Ende des Dokuments springen |
 | `gg` | An den Anfang des Dokuments springen |
-| `ge` | Ans Ende des vorhergehenden Wortes springen |
-| `0` | An den Anfang einer Zeile (Absatzes) springen |
-| `$` | An das Ende einer Zeile (Absatzes) springen |
-| `476G` | Direkt auf Zeile 476 springen |
+| `25-gg` | Genau auf Zeile Nummer 25 im Dokument springen |
+| `476-G` | Direkt auf Zeile 476 springen |
 | `Ctrl-f` | Entspricht PageDown |
 | `Ctrl-b` | Entspricht PageUp |
-| `Ctrl-d` | Scrollt eine halbe Seite nach unten |
-| `Ctrl-u` | Scrollte eine halbe Seite nach oben |
-| `H` | An den obersten Bildschirmpunkt springen |
+| `Ctrl-d` | Scrollt eine halbe Seite nach unten (`d` für Down) |
+| `Ctrl-u` | Scrollte eine halbe Seite nach oben (`u` für Up) |
+| `Ctrl-i` | Zur nächsten Sprungmarke springen (Sprungliste = es werden grössere Positionswechsel gespeichert z.B. `42G`, `gg` oder `G`, nicht jedoch "normale" Bewegungen mittels `j`, `k` oder `Ctrl-u`/`Ctrl-d`) |
+| `Ctrl-o` | Zur vorherigen Sprungmarke springen (wie bei `Ctrl-i` nur in die andere Richtung) |
 | `M` | An den mittleren Bildschirmpunkt springen |
-| `L` | An den untersten Bildschirmpunkt springen |
+| `zz` | Aktuelle Zeile im Editor zentrieren |
+| `%` | Zwischen öffnenden und schliessenden Klammerpaaren den Cursor hin und her bewegen. Dies funktioniert mit allen möglichen Klammerpaaren (z.B. `(`-`)`, `[`-`]` und `{`-`}`) |
+
+> [!NOTE]
+> Mittels `Shift-(` oder `Shift-)` kann man sich Blockweise durch einen Text bzw. Code bewegen. Dadurch wird jeweils ein Codeblock hoch oder runter gesprungen.
+
+#### Horizontale Bewegung
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `ge` | Ans Ende des vorhergehenden Wortes springen |
+| `W` | Ein Wort nach vorne springen aber Zeichen wie `,` usw. ignorieren |
+| `B` | Ein Wort zurück springen aber Zeichen wie `,` usw. ignorieren |
+| `f-Zeichen` | Springt bis zum eingegeben `Zeichen`, mit `;` wird zum nächsten, mit `,` zum vorherigen Vorkommen von `Zeichen` gesprungen |
+| `vi-Zeichen` | Springt bis zum eingegeben `Zeichen` (z.B. `"`) und markiert den Text dazwischen im Visual-Mode (ändern eines Textes zwischen 2 `"`-Zeichen) |
+| `va-Zeichen` | Springt bis zum eingegeben `Zeichen` (z.B. `"`) und markiert den Text inkl. dem `Zeichen` im Visual-Mode |
+| `vib` | Heisst soviel wie "Visual-Mode inside Block" - markiert beispielsweise alles im aktuellen Block (ein Block kann irgendwas zwischen `(` oder `{` usw. sein - der Cursor muss sich jedoch bereits zwischen dem gewünschten Block befinden) |
+| `yi-Zeichen` | Springt bis zum eingegeben `Zeichen` (z.B. `"`) und yankt (kopiert) den Text dazwischen im Visual-Mode (kopieren eines Textes zwischen 2 `"`-Zeichen) |
+| `ya-Zeichen` | Springt bis zum eingegeben `Zeichen` (z.B. `"`) und yankt (kopiert) den Text inkl. der `"`-Zeichen im Visual-Mode (kopieren eines Textes inkl. der 2 `"`-Zeichen) |
+| `0` | An den Anfang einer Zeile springen (immer auf Spalte 1), bleibt im Normal-Modus |
+| `$` | An das Ende einer Zeile springen (letztes Zeichen), bleibt im Normal-Modus |
+| `*` | Benutzt man `*` (`Shift-3`) auf einem Wort unter dem Cursor, wird dieses als Suchbegriff definiert und direkt zum nächsten Vorkommen dessen gesprungen, man kann sich nun mittels `n` in der Suche vorwärts oder mit `N` in der Suche Rückwärts bewegen |
+
+#### Marker
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `ma` | Markierung setzen - dabei ist `a` variabel und kann durch jeden möglichen Buchstaben ersetzt werden |
+| `'a` | Zur gespeicherten Markierung (`a`) an den Anfang der Zeile springen |
+| `` `a `` | Zur gespeicherten Markierung (`a`) springen und zwar exakt zur Zeile und Spalte wo `a` gespeichert wurde |
+
+Da es sowohl Lokale als auch Globale Markierungen gibt, ist folgendes zu beachten:
+
+| Typ | Buchstabe | Reichweite & Verhalten |
+| :--- | :---: | :--- |
+| Lokale Marker | `a` bis `z` | Gilt nur innerhalb der aktuellen Datei. Du kannst `ma` in Datei X und `ma` in Datei Y unabhängig voneinander nutzen. |
+| Globale Marker | `A` bis `Z` | Gilt dateiübergreifend. Wenn du in Datei X `mA` drückst, später Datei Y bearbeitest und `'A` drückst, öffnet Vim automatisch wieder Datei X und springt zur Position. |
+
+**Integrierte Marker:**
+Vim setzt viele nützliche Marker ganz automatisch, ohne dass man diese zuerst speichern muss.
+
+* `''` (Zwei Apostrophe): Springt zurück zur letzten Position, an der du vor dem aktuellen Sprung warst (perfekt nach `G` oder `gg`).
+* `'.` (Apostroph + Punkt): Springt zur letzten bearbeiteten Zeile.
+* `'^` (Apostroph + Caret): Springt zur letzten Einfügeposition (wichtig, wenn du im Insert-Modus warst).
+* `'[.` und `']:`: Springen zum Anfang bzw. Ende des zuletzt veränderten oder eingefügten Textes.
+
+**Übersicht behalten**
+Wenn du mal vergessen hast, welche Marker du gesetzt hast, hilft der Befehl `:marks` weiter.
 
 > [!TIP]
 > Drückt man an einer betimmten Position im Dokument (wo man gerade was am bearbeiten ist) die Tastenkombination `Ctrl-G`, werden Informationen zur Datei und die Zeile auf der der Cursor aktuell steht unten am Bildschirm angezeigt.
@@ -220,6 +282,16 @@ Es können auch nur Suchbegriffe auf mehreren, spezifischen und aufeinader folge
 | `:q` | Aktuell am Bildschirm sichtbares bzw. aktives Fenster schliessen - enthält dieses nicht gespeicherte Änderungen, wird eine entsprechende Meldung ausgegeben (Datei ist jedoch nach wie vor im Buffer) |
 | `:bd` | Aktuellen Buffer schliessen (Datei ist anschliessend nicht mehr im Speicher) |
 | `:bd #` | Buffer mit Nummer `#` schliessen |
+
+### Konsole öffnen
+
+Um hier ein Konsolenfenster zu öffnen, stehen folgende Befehle zur Verfügung:
+
+* `Space-f-t`: Öffnet ein Terminal im aktuellen Verzeichnis (nur Neovim mit LazyVim).
+* `Space-f-T`: Öffnet ein Terminal im Root-Verzeichnis des Projekts (nur Neovim mit LazyVim).
+* `:term`: Öffnet das Terminal im aktuellen Fenster.
+* `:split | term`: Öffnet das Terminal in einem horizontalen Split-Fenster.
+* `:vsplit | term`: Öffnet das Terminal in einem vertikalen Split-Fenster.
 
 ### Rechtschreibprüfung deaktivieren (nur Neovim mit LazyVim)
 
