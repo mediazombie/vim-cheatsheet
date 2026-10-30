@@ -174,7 +174,7 @@ Vim setzt viele nützliche Marker ganz automatisch, ohne dass man diese zuerst s
 * `'^` (Apostroph + Caret): Springt zur letzten Einfügeposition (wichtig, wenn du im Insert-Modus warst).
 * `'[.` und `']:`: Springen zum Anfang bzw. Ende des zuletzt veränderten oder eingefügten Textes.
 
-**Übersicht behalten**
+**Übersicht behalten:**  
 Wenn du mal vergessen hast, welche Marker du gesetzt hast, hilft der Befehl `:marks` weiter.
 
 > [!TIP]
@@ -259,6 +259,56 @@ Es können auch nur Suchbegriffe auf mehreren, spezifischen und aufeinader folge
 | `:s/alt/neu/g` | In aktueller Zeile nach dem Begriff `alt` suchen und jeden Treffer (`/g`) durch `neu` ersetzen |
 | `:%s/alt/neu/gc` | Im aktuellen Dokument nach dem Begriff `alt` suchen und diesen mittels Abfragedialog durch `neu` ersetzen - `../gc` bedeutet `g`=Global (alle Treffer je Zeile, nicht nur den Ersten) und `c` mittels Abfragedialog |
 | `:#,#s/alt/neu/g` | In aufeinander folgenden Zeilen `#,#`, wobei `#,#` für die einzuschliessenden Zeilennummern steht, `alt` durch `neu` ersetzen und `/g` dabei alle Treffer berücksichtigen (nicht nur den Ersten) |
+
+## Sortieren
+
+Auch die alphabetische Sortierung kann Vim bzw. Neovim!  
+Möchte man beispielsweise die folgende Liste mit Wörtern sortieren, setzt man den Cursor an die Position des Ersten oder Letzten Wortes der Liste und markiert die ganze Liste mit dem Visual-Line-Modus `Shift-v`, wechselt in den Comand-Line-Modus indem man `:sort` eingibt.  
+  
+Hier eine Beispielliste zum testen:
+
+```text
+apples
+bananas
+watermelons
+oranges
+grapes
+cigarettes
+kiwis
+raspberrys
+```
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `:sort i` | Gross-/Kleinschreibung ignorieren (Standardmässig kommen Grossbuchstaben zuerst) |
+| `:sort u` | Duplikate entfernen (sortiert die Liste und löscht doppelte Einträge raus) |
+| `:sort n` | Nummerisch sortieren (sinnvoll wenn Zeilen mit Zahlen beginnen) |
+
+> [!TIP]
+> Um die Liste aus dem Beispiel oben nun sortiert auf einer Zeile mit `,` getrennt auszugeben, kann man die ganze Liste mittels `vip` (den ganzen Absatz-Block markieren) auswählen und anschliessend mittels `:sort` alphabetisch sortieren, mittels `gv` die zuvor markierte Auswahl erneut auswählen und mit `:s/\n/, /` auf einer Zeile ausgeben.
+> Ein etwas einfacherer Weg aber ohne `,` geht mittels `J`. Das heisst, zuerst wieder alles markieren mittels `vip`, sortieren `:sort`, vorherige Markierung erneut auswählen `gv` und mittels `J` auf einer Zeile getrennt durch ein Leerzeichen ausgeben.
+
+## Arbeiten mit Zahlen
+
+Auch mit Zahlen kann Vim bzw. Neovim erstaunliches anstellen.  
+Angenommen man hat das nachfolgende Szenario und möchte die Zahlen der Reihe nach durchnummeriert haben, markiert man alle Zahlen, die geändert werden sollen (erste Null nicht, die soll so bleiben) mittels dem Visual-Block-Modus `Ctrl-v` oder mittels dem Visual-Line-Modus `Shift-v`. Danach den Befehl `g Ctrl-a` verwenden und die Zahlen werden automatisch korrekt durchnummeriert.
+
+```text
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+```
+
+>[!TIP]
+> Um sich direkt eine sortierte Liste von aufeinanderfolgenden Zahlen auszugeben, den Befehl `:put =range(0,6)` eingeben und man erhällt eine vertikale Liste mit den Zahlen `0 - 6`. Um diese ggf. hintereinander, durch Leerzeichen getrennt, auszugeben, den Befehl `vip` gefolgt von `J` eingeben.
 
 ## Spezielle Befehle (Vertiefung)
 
