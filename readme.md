@@ -139,12 +139,17 @@ Es gibt zudem noch einige spezielle Bewegungsfunktionen um sich noch schneller b
 | `f-Zeichen` | Springt bis zum eingegeben `Zeichen`, mit `;` wird zum nächsten, mit `,` zum vorherigen Vorkommen von `Zeichen` gesprungen |
 | `vi-Zeichen` | Springt bis zum eingegeben `Zeichen` (z.B. `"`) und markiert den Text dazwischen im Visual-Mode (ändern eines Textes zwischen 2 `"`-Zeichen) |
 | `va-Zeichen` | Springt bis zum eingegeben `Zeichen` (z.B. `"`) und markiert den Text inkl. dem `Zeichen` im Visual-Mode |
-| `vib` | Heisst soviel wie "Visual-Mode inside Block" - markiert beispielsweise alles im aktuellen Block (ein Block kann irgendwas zwischen `(` oder `{` usw. sein - der Cursor muss sich jedoch bereits zwischen dem gewünschten Block befinden) |
+| `vib` | Wählt den nächsten Block innerhalb von runden Klammern `()` aus (der Cursor muss sich auf der entsprechenden Zeile befinden aber nicht zwingend im `()`-Block) |
+| `viB` | Wählt den Text innerhalb von geschweiften Klammern `{}` aus (der Cursor muss sich hierzu im gewünschten Block befinden) |
 | `yi-Zeichen` | Springt bis zum eingegeben `Zeichen` (z.B. `"`) und yankt (kopiert) den Text dazwischen im Visual-Mode (kopieren eines Textes zwischen 2 `"`-Zeichen) |
 | `ya-Zeichen` | Springt bis zum eingegeben `Zeichen` (z.B. `"`) und yankt (kopiert) den Text inkl. der `"`-Zeichen im Visual-Mode (kopieren eines Textes inkl. der 2 `"`-Zeichen) |
 | `0` | An den Anfang einer Zeile springen (immer auf Spalte 1), bleibt im Normal-Modus |
 | `$` | An das Ende einer Zeile springen (letztes Zeichen), bleibt im Normal-Modus |
 | `*` | Benutzt man `*` (`Shift-3`) auf einem Wort unter dem Cursor, wird dieses als Suchbegriff definiert und direkt zum nächsten Vorkommen dessen gesprungen, man kann sich nun mittels `n` in der Suche vorwärts oder mit `N` in der Suche Rückwärts bewegen |
+
+> [!TIP]
+> Um einen Block inkl. der entsprechenden Klammern zu markieren, verwendet man `vab` (für runde `()` Klammern), bzw. `vaB` (für geschweifte `{}` Klammern).  
+> Um einen Block mit eckigen Klammern zu markieren, verwendet man die Eingabe `vi[`, bzw. `va[` - dies funktioniert natürlich auch mit anderen Zeichen und auch anstelle von `vib` (`vi(`) oder `viB` (`vi{`). Ebenso funktioniert dies auch mit den `va...`-Alternativen (für die Auswahl inkl. der Klammern).
 
 #### Marker
 
