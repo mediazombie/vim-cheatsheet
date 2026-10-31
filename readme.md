@@ -18,6 +18,8 @@ Lass dich von den ersten Hürden nicht abschrecken! Niemand lernt Vim an einem T
 
 Hab etwas Geduld mit dir – sobald sich das "Muskelgedächtnis" erst einmal an Vim gewöhnt hat, wirst du nie wieder einen anderen Editor nutzen wollen!
 
+![Beispiel-Screenshot](_assets/Screen_Neovim.png "Screenshot Beispiel")
+
 Hier sind noch 2 weitere Quellen (Englisch) zum lernen von Vim:
 
 * [Vim School](https://vimschool.netlify.app/)
