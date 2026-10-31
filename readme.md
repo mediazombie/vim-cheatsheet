@@ -66,6 +66,13 @@ Um Text in Vim zu editieren, muss in den `Insert`-Modus gewechselt werden. Die g
 | `Shift-a` | Springt hinter das letzte Zeichen der Zeile und startet dort sofort den Insert-Modus (Anhängen) |
 | `x` | Zeichen unter dem Cursor löschen |
 | `r` | Zeichen unter dem Cursor ändern |
+| `~` | Ändert die Gross-/Kleinschreibung des Zeichens unter dem Cursor und verschiebt den Cursor nach rechts (beim CH- bzw. DE-Tastaturlayout muss anschliessend noch ein `Leerzeichen` eingegeben werden) |
+| `4g~w` | Ändert die Gross-/Kleinschreibung des Textes über den Bereich von 4 Wörtern |
+| `4guw` | Ändert die nächsten 4 Wörter komplett in Kleinbuchstaben (aus `HALLO` wird `hallo`) |
+| `4gUw` | Ändert die nächsten 4 Wörter komplett in Grossbuchstaben (aus `hallo` wird `HALLO`) |
+
+> [!TIP]
+> Nicht vergessen, viele Befehle lassen sich natürlich auch mit dem Visual-Modus umsetzen. So kann man beispielsweise mittels `v4w` gefolgt von `gU` die nächsten 4 Wörter ebenfalls in Grossbuchstaben ändern.
 
 ## Löschkommandos
 
@@ -74,9 +81,17 @@ Zur Sicherheit zuvor jeweils die `Esc`-Taste drücken.
 
 | Eingabe | Funktion |
 | :---: | :--- |
-| `dw` | Wort löschen - Cursor muss auf dem ersten Zeichen des Wortes stehen |
+| `dw` | Ab der Cursor-Position bis zum Ende des aktuellen Wortes löschen |
 | `diw` | Wort löschen - Cursor kann irgendwo im Wort stehen |
 | `d$` | Bis ans Ende der Zeile, ab Corsor-Position, löschen |
+| `Shift-d` | Bis ans Ende der Zeile, ab Corsor-Position, löschen |
+| `dd` | Ganze Zeile löschen |
+| `2dd` | Die aktuelle Zeile (Cursor-Position) und die darunter liegende Zeile löschen |
+| `dG` | Von der Cursor-Position bis an das Ende der Datei löschen |
+
+> [!TIP]
+> Mit `.` kann der letzte Befehl jeweils wiederholt werden. Das heisst, wenn zuvor der Befehl `diw` ausgeführt wurde, kann beispielsweise mittels `w` zum nächsten Wort gesprungen werden und durch drücken der Taste `.` dort der Befehl `diw` wiederholt werden, ohne diesen erneut einzugeben (funktioniert auch mit anderen Funktionen - einfach ausprobieren).
+> Dies lässt sich, wie auch andere Funktionen, auch mehrfach wiederholen, indem man statt nur `.` z.B. `3.` eingibt!
 
 ## Operatoren und Bewegungsfunktionen
 
@@ -116,6 +131,8 @@ Es gibt zudem noch einige spezielle Bewegungsfunktionen um sich noch schneller b
 | `gg` | An den Anfang des Dokuments springen |
 | `25-gg` | Genau auf Zeile Nummer 25 im Dokument springen |
 | `476-G` | Direkt auf Zeile 476 springen |
+| `Ctrl-e` | Eine Zeile nach oben, ohne den Cursor zu bewegen |
+| `Ctrl-y` | Eine Zeile nach unten, ohne den Cursor zu bewegen |
 | `Ctrl-f` | Entspricht PageDown |
 | `Ctrl-b` | Entspricht PageUp |
 | `Ctrl-d` | Scrollt eine halbe Seite nach unten (`d` für Down) |
@@ -124,6 +141,8 @@ Es gibt zudem noch einige spezielle Bewegungsfunktionen um sich noch schneller b
 | `Ctrl-o` | Zur vorherigen Sprungmarke springen (wie bei `Ctrl-i` nur in die andere Richtung) |
 | `M` | An den mittleren Bildschirmpunkt springen |
 | `zz` | Aktuelle Zeile im Editor zentrieren |
+| `zt` | Aktuelle Zeile im Editor am oberen Fensterrand ausrichten |
+| `zb` | Aktuelle Zeile im Editor am unteren Fensterrand ausrichten |
 | `%` | Zwischen öffnenden und schliessenden Klammerpaaren den Cursor hin und her bewegen. Dies funktioniert mit allen möglichen Klammerpaaren (z.B. `(`-`)`, `[`-`]` und `{`-`}`) |
 
 > [!NOTE]
@@ -145,11 +164,17 @@ Es gibt zudem noch einige spezielle Bewegungsfunktionen um sich noch schneller b
 | `ya-Zeichen` | Springt bis zum eingegeben `Zeichen` (z.B. `"`) und yankt (kopiert) den Text inkl. der `"`-Zeichen im Visual-Mode (kopieren eines Textes inkl. der 2 `"`-Zeichen) |
 | `0` | An den Anfang einer Zeile springen (immer auf Spalte 1), bleibt im Normal-Modus |
 | `$` | An das Ende einer Zeile springen (letztes Zeichen), bleibt im Normal-Modus |
+| `(`, `)` | An den Anfang bzw. das Ende des Satzes springen |
+| `{`, `}` | An den Anfang bzw. das Ende des Absatzes springen |
 | `*` | Benutzt man `*` (`Shift-3`) auf einem Wort unter dem Cursor, wird dieses als Suchbegriff definiert und direkt zum nächsten Vorkommen dessen gesprungen, man kann sich nun mittels `n` in der Suche vorwärts oder mit `N` in der Suche Rückwärts bewegen |
 
 > [!TIP]
 > Um einen Block inkl. der entsprechenden Klammern zu markieren, verwendet man `vab` (für runde `()` Klammern), bzw. `vaB` (für geschweifte `{}` Klammern).  
 > Um einen Block mit eckigen Klammern zu markieren, verwendet man die Eingabe `vi[`, bzw. `va[` - dies funktioniert natürlich auch mit anderen Zeichen und auch anstelle von `vib` (`vi(`) oder `viB` (`vi{`). Ebenso funktioniert dies auch mit den `va...`-Alternativen (für die Auswahl inkl. der Klammern).
+
+> [!NOTE]
+> Bewegungen wie beispielsweise Satz- oder Absatzbewegungen lassen sich auch sehr gut mit Operatoren kombinieren, wodurch diese sehr mächtig werden.  
+> So lässt sich z.B. mittels `dis` der aktuelle Satz (ohne nachfolgende Leerzeichen) löschen, mittels `das` der aktuelle Satz (inkl. Leerzeichen) löschen, `vip` markiert den aktuellen Absatz im Visual-Mode und `yap` kopiert (yankt) den gesamten Absatz.
 
 #### Marker
 
@@ -251,7 +276,7 @@ Durch tippen von `%` während der Cursor auf einer Klammer `(`, `[` oder `{` ste
 
 Hier, wie bei den meisten Befehlen, ebenfalls darauf achten, dass man sich im `Normal`-Modus befindet.  
 Wenn du `:s/alt/neu/g` tippst, wird auf der aktuellen Zeile nach dem Begriff `alt` gesucht und dieser durch `neu` ersetzt. Das `/g` am Ende der Eingabe bedeutet, dass die ganze aktuelle Zeile bzw. der Absatz durchsucht und jeder gefundene Begriff `alt` direkt durch `neu` ersetzt wird.  
-Um das ganze Dokument nach einem Begriff (z.B. Variablenname) zu durchsuchen und zu ersetzen, tippst du `:%s/alt/neu/g`. Um nicht direkt alles zu ersetzen, sondern mittels Abfrage zu jedem gefunden Begriff zu ersetzen, tippst du `%s/alt/neu/gc`. Dadurch wirst du bei jedem gefundenen Begriff, mittels Abfragedialog, gefragt, ob dieser ersetzt werden soll oder nicht.  
+Um das ganze Dokument nach einem Begriff (z.B. Variablenname) zu durchsuchen und zu ersetzen, tippst du `:%s/alt/neu/g`. Um nicht direkt alles zu ersetzen, sondern mittels Abfrage zu jedem gefunden Begriff zu ersetzen, tippst du `:%s/alt/neu/gc`. Dadurch wirst du bei jedem gefundenen Begriff, mittels Abfragedialog, gefragt, ob dieser ersetzt werden soll oder nicht.  
 Es können auch nur Suchbegriffe auf mehreren, spezifischen und aufeinader folgenden Zeilen ersetzt werden. Hierfür tippst du einfach `:#,#s/alt/neu/g`, wobei `#,#` die Zeilennummern des Bereichs sind. Auch hier kannst du stattdessen `:#,#s/alt/neu/gc` eingeben, damit bei jedem Treffer ein Abfragedialog angezeigt wird.
 
 | Eingabe | Funktion |
