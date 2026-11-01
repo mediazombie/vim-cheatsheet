@@ -3,296 +3,439 @@
 
 ## Willkommen in der Welt von Vim – Dein Einstieg in den legendären Editor
 
-**Vim (und seine Geschwister Vi und Neovim)** gehört zu den mächtigsten Werkzeugen, die die Softwarewelt je hervorgebracht hat. Während normale Texteditoren wie Notizblock-Programme funktionieren, ist Vim eher wie ein Präzisionswerkzeug für Programmierer, Systemsadministratoren und Text-Enthusiasten. Wer Vim beherrscht, tippt nicht nur Text, sondern "spricht" mit dem Editor. Du kannst damit Text blitzschnell manipulieren, durch riesige Dateien springen und Aufgaben automatisieren, für die man sonst minutenlang mit der Maus klicken müsste.
+**Vim (und seine Geschwister Vi und Neovim)** gehört zu den mächtigsten Werkzeugen, die die Softwarewelt je hervorgebracht hat. Während normale Texteditoren wie Notizblock-Programme funktionieren, ist Vim eher ein Präzisionswerkzeug für Programmierer, Systemadministratoren und Text-Enthusiasten. Wer Vim beherrscht, tippt nicht nur Text, sondern «spricht» mit dem Editor. Damit lässt sich Text blitzschnell bearbeiten, man springt durch riesige Dateien und automatisiert Aufgaben, für die man sonst minutenlang mit der Maus klicken müsste.
 
-**Warum haben so viele Menschen Respekt oder sogar Angst vor Vim?**  
-Vim hat einen berühmt-berüchtigten Ruf: Seine Lernkurve ist steil. Der Grund dafür ist einfach: Vim nutzt keine Menüleisten oder typischen Mausklicks. Wenn man Vim das erste Mal öffnet, tippt man oft blind darauf los – und nichts passiert. Schlimmer noch: Viele wissen nicht einmal, wie man das Programm wieder schliesst (kleiner Spoiler: `:q` gefolgt von `Enter` ist dein Freund!). Diese anfängliche Orientierungslosigkeit schreckt viele ab.
+### Warum haben so viele Menschen Respekt oder sogar Angst vor Vim?
 
-**Terminal oder Grafikoberfläche?**  
-Es gibt zwar inzwischen moderne Versionen für Windows, macOS und Linux, die in einem eigenen Fenster mit grafischer Oberfläche laufen. Der eigentliche Einsatzzweck und der grösste Vorteil von Vim liegen jedoch direkt im Terminal (der Kommandozeile). Hier verbraucht Vim so gut wie keine Systemressourcen, läuft selbst auf den ältesten Computern oder über langsame Internetverbindungen reibungslos und hält deine Hände genau dort, wo sie am produktivsten sind: auf der Tastatur.
+Vim hat einen berühmt-berüchtigten Ruf: Die Lernkurve ist steil. Der Grund ist einfach: Vim nutzt keine Menüleisten und keine typischen Mausklicks. Wenn man Vim zum ersten Mal öffnet, tippt man oft blind drauflos – und nichts passiert. Schlimmer noch: Viele wissen nicht einmal, wie man das Programm wieder schliesst (kleiner Spoiler: `Esc`, dann `:q` gefolgt von `Enter` ist dein Freund!). Diese anfängliche Orientierungslosigkeit schreckt viele ab.
 
-**Dein Weg zum Vim-Profi**  
-Lass dich von den ersten Hürden nicht abschrecken! Niemand lernt Vim an einem Tag. Dieses Cheatsheet soll dir als digitaler Spickzettel und Orientierungshilfe dienen, um die wichtigsten Befehle immer griffbereit zu haben.
+### Terminal oder Grafikoberfläche?
 
-* Der beste Start: Wenn du direkt loslegen und spielerisch lernen willst, öffne dein Terminal und tippe einfach den Befehl vimtutor ein. Es startet ein interaktives, ca. 30-minütiges Lernprogramm, das dich sicher durch die allerersten Schritte führt.
+Es gibt inzwischen moderne Versionen für Windows, macOS und Linux, die in einem eigenen Fenster mit grafischer Oberfläche laufen. Der eigentliche Einsatzzweck und der grösste Vorteil von Vim liegen jedoch direkt im Terminal (der Kommandozeile). Hier verbraucht Vim so gut wie keine Systemressourcen, läuft selbst auf alten Computern oder über langsame Internetverbindungen reibungslos und hält deine Hände dort, wo sie am produktivsten sind: auf der Tastatur.
 
-Hab etwas Geduld mit dir – sobald sich das "Muskelgedächtnis" erst einmal an Vim gewöhnt hat, wirst du nie wieder einen anderen Editor nutzen wollen!
+### Dein Weg zum Vim-Profi
 
-![Beispiel-Screenshot](_assets/Screen_Neovim.png "Screenshot Beispiel")
+Lass dich von den ersten Hürden nicht abschrecken! Niemand lernt Vim an einem Tag. Dieses Cheatsheet soll dir als digitaler Spickzettel und Orientierungshilfe dienen, damit du die wichtigsten Befehle immer griffbereit hast.
 
-Hier sind noch 2 weitere Quellen (Englisch) zum lernen von Vim:
+* **Der beste Start:** Wenn du direkt loslegen und spielerisch lernen willst, öffne dein Terminal und tippe den Befehl `vimtutor` ein. Er startet ein interaktives, ca. 30-minütiges Lernprogramm, das dich sicher durch die ersten Schritte führt.
+
+Hab etwas Geduld mit dir selbst – sobald sich das «Muskelgedächtnis» an Vim gewöhnt hat, wirst du keinen anderen Editor mehr nutzen wollen!
+
+![Neovim-Beispiel](_assets/Screen_Neovim.png "Screenshot eines Neovim-Fensters")
+
+Hier sind zwei weitere Quellen (Englisch) zum Lernen von Vim:
 
 * [Vim School](https://vimschool.netlify.app/)
 * [Getting started with Vim](https://opensource.com/article/19/3/getting-started-vim)
+
+Hier ist noch ein weiteres Cheatsheet von "Josean Martinez" in Englisch (er hat auch sehr gute Videos zum Thema auf [YouTube](https://www.youtube.com/@joseanmartinez)):
+
+* [Vim Essentials Cheatsheet & Guide](https://www.josean.com/posts/vim-essentials-cheatsheet)
+
+### Schreibweise in diesem Cheatsheet
+
+> [!NOTE]
+> * `Ctrl-d` bedeutet: `Ctrl` gedrückt halten und gleichzeitig `d` drücken.
+> * `Space f b` bedeutet: Die Tasten werden nacheinander gedrückt (nicht gleichzeitig).
+> * `{Zeichen}` ist ein Platzhalter: Hier tippst du das gewünschte Zeichen. Die geschweiften Klammern gehören nicht zum Befehl.
+> * Befehle, die mit `:` beginnen, werden in der Befehlszeile eingegeben und mit `Enter` bestätigt.
+
+## Inhaltsverzeichnis
+
+1. [Vim beenden und speichern](#vim-beenden-und-speichern)
+2. [Die Modi von Vim](#die-modi-von-vim)
+3. [Bewegen im Text](#bewegen-im-text)
+4. [Text einfügen](#text-einfügen)
+5. [Operatoren und Bewegungen](#operatoren-und-bewegungen)
+6. [Löschen](#löschen)
+7. [Ändern und Ersetzen](#ändern-und-ersetzen)
+8. [Gross-/Kleinschreibung ändern](#gross-kleinschreibung-ändern)
+9. [Kopieren, Einfügen und Register](#kopieren-einfügen-und-register)
+10. [Wiederholen mit dem Punkt](#wiederholen-mit-dem-punkt)
+11. [Rückgängig machen und Wiederherstellen](#rückgängig-machen-und-wiederherstellen)
+12. [Visual-Modus in der Praxis](#visual-modus-in-der-praxis)
+13. [Suchen](#suchen)
+14. [Suchen und Ersetzen](#suchen-und-ersetzen)
+15. [Sortieren](#sortieren)
+16. [Arbeiten mit Zahlen](#arbeiten-mit-zahlen)
+17. [Dateien, Buffer und Fenster](#dateien-buffer-und-fenster)
+18. [Terminal in Vim](#terminal-in-vim)
+19. [Neovim und LazyVim](#neovim-und-lazyvim)
+
+## Vim beenden und speichern
+
+Beenden ist ein Befehl der Befehlszeile. Drücke zuerst `Esc`, damit du sicher im `Normal`-Modus bist, tippe dann den Befehl ein und bestätige mit `Enter`.
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `:q` | Vim beenden (nur wenn keine ungespeicherten Änderungen vorliegen) |
+| `:q!` | Vim beenden und Änderungen verwerfen, ohne Nachfrage |
+| `:w` | Datei speichern |
+| `:wq` oder `:x` | Speichern und beenden |
+| `ZZ` | Speichern und beenden (Normal-Modus, ohne `Enter`) |
+| `ZQ` | Beenden ohne Speichern (Normal-Modus, ohne `Enter`) |
 
 ## Die Modi von Vim
 
 Hier sind die wichtigsten Modi von Vim:
 
-* Normal-Modus `Esc`: Der Standardmodus für effiziente Navigation, Löschen und Textmanipulation.
-* Insert-Modus `i`: Modus zum direkten Schreiben und Einfügen von neuem Text.
-* Visual-Modus `v`: Erlaubt das zeichen- (`v`), zeilen- (`Shift-v`) oder blockweise (`Ctrl-v`) Auswählen von Textpassagen.
-* Comand-Line-Modus: Eingabe von Befehlen wie z.B. Speichern (`:w`) oder Suchen (`/`).
+* **Normal-Modus** (Rückkehr mit `Esc`): Der Standardmodus für effiziente Navigation, Löschen und Textbearbeitung.
+* **Insert-Modus** (Start z. B. mit `i`): Modus zum direkten Schreiben und Einfügen von neuem Text.
+* **Visual-Modus** (Start mit `v`): Erlaubt das zeichenweise (`v`), zeilenweise (`Shift-v`) oder blockweise (`Ctrl-v`) Auswählen von Textpassagen.
+* **Command-Line-Modus** (Start mit `:`): Eingabe von Befehlen wie z. B. Speichern (`:w`) oder Ersetzen (`:s`). Die Suche (`/`) wird ebenfalls in der Befehlszeile eingegeben.
 
 > [!NOTE]
-> Im Visual-Modus kann mittels `o` zwischen dem Anfang der Markierung und dem Ende hin und her gesprungen werden. Dies kann hilfreich sein, wenn man oberhalb oder unterhalb der Markierung noch was in die Markierung einschliessen möchte.
+> Im Visual-Modus kann mit `o` zwischen dem Anfang und dem Ende der Markierung hin und her gesprungen werden. Das ist hilfreich, wenn man oberhalb oder unterhalb der Markierung noch etwas hinzufügen möchte.
 
-## Bewegen des Cursors
+## Bewegen im Text
 
-Um den Cursor zu bewegen, nutze die Tasten `h, j, k und l`
+### Grundbewegung
 
-| Taste | Funktion |
+Um den Cursor zu bewegen, nutze die Tasten `h`, `j`, `k` und `l`.
+
+| Eingabe | Funktion |
 | :---: | :--- |
 | `h` | Cursor nach links bewegen |
 | `j` | Cursor nach unten bewegen |
 | `k` | Cursor nach oben bewegen |
 | `l` | Cursor nach rechts bewegen |
 
-## Vim Beenden
-
-Da es sich nachfolgend um einen Befehl handelt, der nur im `Normal`-Modus funktioniert, stelle zuerst sicher, dass du dich in diesem befindest indem du die Taste `Esc` drückst!
+### Wortbewegung
 
 | Eingabe | Funktion |
 | :---: | :--- |
-| `:q!` | Vim ohne speichern oder Nachfrage schliessen |
+| `w` | Zum Anfang des nächsten Wortes springen |
+| `e` | Zum Ende des aktuellen bzw. nächsten Wortes springen |
+| `b` | Zum Anfang des aktuellen bzw. vorherigen Wortes zurückspringen |
+| `ge` | Zum Ende des vorherigen Wortes zurückspringen |
+| `W` | Wie `w`, aber Satzzeichen wie `,` gelten nicht als Wortgrenze (nur Leerzeichen) |
+| `B` | Wie `b`, aber Satzzeichen wie `,` gelten nicht als Wortgrenze |
 
-## Text editieren
+> [!NOTE]
+> Mit einer vorangestellten Zahl werden mehrere Bewegungsschritte ausgeführt (z. B. springt `17b` um 17 Wörter zurück).
 
-Um Text in Vim zu editieren, muss in den `Insert`-Modus gewechselt werden. Die gebräuchlichste Möglichkeit dazu ist, die Taste `i` zu drücken.
+### Zeilenbewegung
 
-| Taste | Funktion |
+| Eingabe | Funktion |
+| :---: | :--- |
+| `0` | An den Anfang der Zeile springen (Spalte 1) |
+| `^` | Zum ersten Nicht-Leerzeichen der Zeile springen |
+| `$` | An das Ende der Zeile springen |
+| `f{Zeichen}` | In der aktuellen Zeile zum nächsten `{Zeichen}` springen (z. B. `f,`) |
+| `;` | Letzte `f`-Suche zum nächsten Vorkommen wiederholen |
+| `,` | Letzte `f`-Suche zum vorherigen Vorkommen wiederholen |
+
+### Dokumentbewegung
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `gg` | An den Anfang des Dokuments springen |
+| `G` | An das Ende des Dokuments springen |
+| `25G` oder `25gg` | Auf Zeile 25 springen |
+| `:25` | Alternative: Auf Zeile 25 springen (Befehlszeile) |
+| `H` | Zur ersten sichtbaren Zeile des Fensters springen |
+| `M` | Zur mittleren sichtbaren Zeile des Fensters springen |
+| `L` | Zur letzten sichtbaren Zeile des Fensters springen |
+
+### Scrollen
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `Ctrl-e` | Ansicht um eine Zeile nach unten scrollen, ohne den Cursor zu bewegen |
+| `Ctrl-y` | Ansicht um eine Zeile nach oben scrollen, ohne den Cursor zu bewegen |
+| `Ctrl-f` | Eine Seite vorwärts scrollen (wie `Page Down`) |
+| `Ctrl-b` | Eine Seite rückwärts scrollen (wie `Page Up`) |
+| `Ctrl-d` | Eine halbe Seite nach unten scrollen (`d` für Down) |
+| `Ctrl-u` | Eine halbe Seite nach oben scrollen (`u` für Up) |
+| `zz` | Aktuelle Zeile im Fenster zentrieren |
+| `zt` | Aktuelle Zeile am oberen Fensterrand ausrichten |
+| `zb` | Aktuelle Zeile am unteren Fensterrand ausrichten |
+
+### Satz- und Absatzbewegung
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `(` | Zum Anfang des aktuellen bzw. vorherigen Satzes springen |
+| `)` | Zum Anfang des nächsten Satzes springen |
+| `{` | Zum vorherigen Absatz springen (Absätze sind durch Leerzeilen getrennt) |
+| `}` | Zum nächsten Absatz springen |
+
+> [!NOTE]
+> Mit `{` und `}` kann man sich blockweise durch Text bzw. Code bewegen.
+
+### Passende Klammern finden
+
+Mit `%` springt der Cursor von einer Klammer `(`, `[` oder `{` zur passenden Gegenklammer. Das funktioniert in beide Richtungen, je nachdem, ob der Cursor auf der öffnenden oder der schliessenden Klammer steht.
+
+> [!NOTE]
+> Diese Funktion ist vor allem beim Bearbeiten von Programmcode hilfreich, um fehlende Klammern zu finden.
+
+### Sprungliste
+
+Vim speichert grössere Positionswechsel (z. B. `42G`, `gg`, `G`, Suchen), nicht jedoch «normale» Bewegungen wie `j`, `k` oder `Ctrl-u`/`Ctrl-d`.
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `Ctrl-o` | Zur vorherigen Position der Sprungliste zurückspringen |
+| `Ctrl-i` | In der Sprungliste wieder vorwärts springen |
+| `Ctrl-g` | Datei- und Zeileninfo unten im Fenster anzeigen |
+
+> [!TIP]
+> `Ctrl-o` und `Ctrl-i` sind vergleichbar mit dem Zurück- und Vorwärts-Button eines Webbrowsers. Das funktioniert nach einer Suche ebenso wie nach `gg` oder `G`.
+> Mit `Ctrl-g` siehst du die aktuelle Zeilennummer. Merkst du sie dir, kannst du dich durch das Dokument bewegen und später mit `{Zeilennummer}G` wieder zurückkehren.
+
+### Marker
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `ma` | Marker setzen – `a` ist variabel und kann durch jeden Buchstaben ersetzt werden |
+| `'a` | Zum Anfang der Zeile des gespeicherten Markers `a` springen |
+| `` `a `` | Exakt zu Zeile und Spalte des gespeicherten Markers `a` springen |
+
+Es gibt lokale und globale Marker:
+
+| Typ | Buchstabe | Reichweite und Verhalten |
+| :--- | :---: | :--- |
+| Lokale Marker | `a` bis `z` | Gelten nur innerhalb der aktuellen Datei. `ma` in Datei X und `ma` in Datei Y sind voneinander unabhängig. |
+| Globale Marker | `A` bis `Z` | Gelten dateiübergreifend. Setzt du in Datei X `mA`, bearbeitest später Datei Y und drückst `'A`, öffnet Vim automatisch wieder Datei X und springt zur Position. |
+
+#### Integrierte Marker
+
+Vim setzt viele nützliche Marker automatisch, ohne dass man sie zuerst speichern muss.
+
+* `''` (zwei Apostrophe): Springt zur Position vor dem letzten Sprung (praktisch nach `G` oder `gg`).
+* `'.`: Springt zur Zeile der letzten Änderung.
+* `'^`: Springt zur Position, an der der Insert-Modus zuletzt verlassen wurde.
+* `'[` und `']`: Springen zum Anfang bzw. Ende des zuletzt veränderten oder eingefügten Textes.
+
+#### Übersicht behalten
+
+Wenn du vergessen hast, welche Marker du gesetzt hast, hilft der Befehl `:marks` weiter.
+
+## Text einfügen
+
+Um Text in Vim zu schreiben, muss in den `Insert`-Modus gewechselt werden. Die gebräuchlichste Möglichkeit dazu ist die Taste `i`. Zurück in den Normal-Modus geht es mit `Esc`.
+
+| Eingabe | Funktion |
 | :---: | :--- |
 | `i` | Text vor der Cursor-Position einfügen |
 | `a` | Text hinter der Cursor-Position einfügen |
-| `Shift-i` | Springt zum ersten sichtbaren (Nicht-Leerzeichen-)Zeichen der Zeile und startet dort den Insert-Modus |
-| `Shift-a` | Springt hinter das letzte Zeichen der Zeile und startet dort sofort den Insert-Modus (Anhängen) |
-| `x` | Zeichen unter dem Cursor löschen |
-| `r` | Zeichen unter dem Cursor ändern |
-| `~` | Ändert die Gross-/Kleinschreibung des Zeichens unter dem Cursor und verschiebt den Cursor nach rechts (beim CH- bzw. DE-Tastaturlayout muss anschliessend noch ein `Leerzeichen` eingegeben werden) |
-| `4g~w` | Ändert die Gross-/Kleinschreibung des Textes über den Bereich von 4 Wörtern |
-| `4guw` | Ändert die nächsten 4 Wörter komplett in Kleinbuchstaben (aus `HALLO` wird `hallo`) |
-| `4gUw` | Ändert die nächsten 4 Wörter komplett in Grossbuchstaben (aus `hallo` wird `HALLO`) |
+| `Shift-i` (`I`) | Zum ersten Nicht-Leerzeichen der Zeile springen und dort den Insert-Modus starten |
+| `Shift-a` (`A`) | Hinter das letzte Zeichen der Zeile springen und dort den Insert-Modus starten (Anhängen) |
+| `o` | Neue Zeile unterhalb der aktuellen einfügen und den Insert-Modus starten |
+| `Shift-o` (`O`) | Neue Zeile oberhalb der aktuellen einfügen und den Insert-Modus starten |
 
-> [!TIP]
-> Nicht vergessen, viele Befehle lassen sich natürlich auch mit dem Visual-Modus umsetzen. So kann man beispielsweise mittels `v4w` gefolgt von `gU` die nächsten 4 Wörter ebenfalls in Grossbuchstaben ändern.
+## Operatoren und Bewegungen
 
-## Löschkommandos
+Vim funktioniert nach dem Prinzip **Operator + Bewegung**. Ein Operator (z. B. `d` für Löschen, `c` für Ändern, `y` für Kopieren) wird mit einer Bewegung kombiniert und wirkt auf den Bereich, den die Bewegung überstreicht.
 
-Auch hier ist darauf zu achten, dass man sich im `Normal`-Modus befindet.
-Zur Sicherheit zuvor jeweils die `Esc`-Taste drücken.
+Beispiel mit dem Löschoperator `d`:
 
 | Eingabe | Funktion |
 | :---: | :--- |
-| `dw` | Ab der Cursor-Position bis zum Ende des aktuellen Wortes löschen |
-| `diw` | Wort löschen - Cursor kann irgendwo im Wort stehen |
-| `d$` | Bis ans Ende der Zeile, ab Corsor-Position, löschen |
-| `Shift-d` | Bis ans Ende der Zeile, ab Corsor-Position, löschen |
-| `dd` | Ganze Zeile löschen |
-| `2dd` | Die aktuelle Zeile (Cursor-Position) und die darunter liegende Zeile löschen |
-| `dG` | Von der Cursor-Position bis an das Ende der Datei löschen |
-
-> [!TIP]
-> Mit `.` kann der letzte Befehl jeweils wiederholt werden. Das heisst, wenn zuvor der Befehl `diw` ausgeführt wurde, kann beispielsweise mittels `w` zum nächsten Wort gesprungen werden und durch drücken der Taste `.` dort der Befehl `diw` wiederholt werden, ohne diesen erneut einzugeben (funktioniert auch mit anderen Funktionen - einfach ausprobieren).
-> Dies lässt sich, wie auch andere Funktionen, auch mehrfach wiederholen, indem man statt nur `.` z.B. `3.` eingibt!
-
-## Operatoren und Bewegungsfunktionen
-
-Mittels Operatoren können Bewegungsfunktionen bis zu einem definierten Punkt oder mittels Zähler mehrfach nacheinander ausgeführt werden.
-Zum Beispiel `d` als Löschoperator gefolgt gefolgt von einer Bewegung (z.B. `w` für Wort):
-
-| Eingabe | Funktion |
-| :---: | :--- |
-| `dw` | Löschoperator ab aktueller Cursorposition bis Beginn des nächsten Wortes OHNE dessen erstes Zeichen |
-| `de` | Löschoperator ab aktueller Cursorposition bis Ende des aktuellen Wortes MIT dessen letztem Zeichen |
-| `d$` | Löschoperator ab aktueller Cursorposition bis Ende der Zeile MIT dem letzten Zeichen |
-
->[!NOTE]
-> Durch die Eingabe im Normal-Modus von `w`, `e`, bzw. `b` oder `ge` kann man sich auch ohne Funktionsoperator durch Wörter bewegen. Dabei gilt, `w` und `e` bewegen den Cursor Wortweise vorwärts und `b` bzw. `ge` bewegen den Cursor Wortweise rückwärts.
-> Auch hier können mit vorangestellter Zahl mehrere entsprechende Bewegungsschritte ausgeführt werden (z.B. springt `17b` um 17 Wörter zurück)
+| `dw` | Von der Cursor-Position bis zum Beginn des nächsten Wortes löschen (inkl. Leerzeichen) |
+| `de` | Von der Cursor-Position bis zum Ende des aktuellen Wortes löschen (inkl. letztem Zeichen) |
+| `d$` | Von der Cursor-Position bis zum Ende der Zeile löschen (inkl. letztem Zeichen) |
 
 ### Verwendung eines Zählers mit einer Bewegung
 
-Gibt man vor einer Bewegungsfunktion eine Zahl ein, wird die Bewegung entsprechend oft wiederholt. Zum Beispiel wird der Cursor bei Eingabe von `12w` um 12 Wörter vorwärts bewegt.
-Dies lässt sich auch mit Richtungsfunktionen `h, j, k, l` verwenden um z. B. um 128 Zeilen nach unten zu springen, gibt man einfach `128j` ein.
+Gibt man vor einer Bewegung eine Zahl ein, wird die Bewegung entsprechend oft wiederholt. Bei `12w` bewegt sich der Cursor z. B. um 12 Wörter vorwärts. Das funktioniert auch mit den Richtungstasten `h`, `j`, `k`, `l`: Um 128 Zeilen nach unten zu springen, gibt man `128j` ein.
 
-### Verwendung eines Zählers für mehrere Operatoren
+### Verwendung eines Zählers mit einem Operator
 
-Da man in Vim vieles miteinander kombinieren kann, ist es beispielsweise auch möglich mit einer Eingabe mehrere Zeilen zu löschen.
-Gibt man zum Beispiel im Normal-Modus `d2w` ein, werden die nächsten beiden Wörter gelöscht wobei bei Eingabe von `dw` nur das aktuelle Wort gelöscht wird.
-Gleiches funktioniert auch zum löschen von mehr als einer Zeile `dd` (löscht die aktuelle Zeile), wobei `5dd` die nächsten 5 Zeilen löscht.
+Operator und Zähler lassen sich kombinieren. Mit `d2w` werden die nächsten zwei Wörter gelöscht, mit `dw` nur eines. Analog löscht `dd` die aktuelle Zeile und `5dd` die nächsten fünf Zeilen (inkl. der aktuellen).
 
-### Spezielle Bewegungsfunktionen
+### Text-Objekte
 
-Es gibt zudem noch einige spezielle Bewegungsfunktionen um sich noch schneller bzw. komfortabler durch ein Dokument zu bewegen (siehe nachfolgende Tabelle):
-
-#### Vertikale Bewegung
+Text-Objekte beschreiben Bereiche rund um den Cursor. Mit `i` (inner) wird der Inhalt ohne Begrenzer gewählt, mit `a` (around) inklusive Begrenzer. Sie lassen sich mit jedem Operator kombinieren.
 
 | Eingabe | Funktion |
 | :---: | :--- |
-| `G` | An das Ende des Dokuments springen |
-| `gg` | An den Anfang des Dokuments springen |
-| `25-gg` | Genau auf Zeile Nummer 25 im Dokument springen |
-| `476-G` | Direkt auf Zeile 476 springen |
-| `Ctrl-e` | Eine Zeile nach oben, ohne den Cursor zu bewegen |
-| `Ctrl-y` | Eine Zeile nach unten, ohne den Cursor zu bewegen |
-| `Ctrl-f` | Entspricht PageDown |
-| `Ctrl-b` | Entspricht PageUp |
-| `Ctrl-d` | Scrollt eine halbe Seite nach unten (`d` für Down) |
-| `Ctrl-u` | Scrollte eine halbe Seite nach oben (`u` für Up) |
-| `Ctrl-i` | Zur nächsten Sprungmarke springen (Sprungliste = es werden grössere Positionswechsel gespeichert z.B. `42G`, `gg` oder `G`, nicht jedoch "normale" Bewegungen mittels `j`, `k` oder `Ctrl-u`/`Ctrl-d`) |
-| `Ctrl-o` | Zur vorherigen Sprungmarke springen (wie bei `Ctrl-i` nur in die andere Richtung) |
-| `M` | An den mittleren Bildschirmpunkt springen |
-| `zz` | Aktuelle Zeile im Editor zentrieren |
-| `zt` | Aktuelle Zeile im Editor am oberen Fensterrand ausrichten |
-| `zb` | Aktuelle Zeile im Editor am unteren Fensterrand ausrichten |
-| `%` | Zwischen öffnenden und schliessenden Klammerpaaren den Cursor hin und her bewegen. Dies funktioniert mit allen möglichen Klammerpaaren (z.B. `(`-`)`, `[`-`]` und `{`-`}`) |
+| `iw` / `aw` | Wort (ohne / mit nachfolgendem Leerzeichen) |
+| `is` / `as` | Satz (ohne / mit nachfolgendem Leerzeichen) |
+| `ip` / `ap` | Absatz (ohne / mit angrenzender Leerzeile) |
+| `i"` / `a"` | Text zwischen Anführungszeichen (ohne / mit den Zeichen) |
+| `ib` oder `i(` | Inhalt der runden Klammern `()` |
+| `iB` oder `i{` | Inhalt der geschweiften Klammern `{}` |
+| `i[` / `a[` | Inhalt der eckigen Klammern `[]` (ohne / mit den Klammern) |
+
+Beispiele:
+
+* `diw` löscht das Wort unter dem Cursor.
+* `dis` löscht den aktuellen Satz, `das` den Satz inklusive nachfolgendem Leerzeichen.
+* `vip` markiert den aktuellen Absatz im Visual-Modus, `yap` kopiert ihn.
+* `vi"` markiert den Text zwischen Anführungszeichen, `ya"` kopiert ihn inklusive der Anführungszeichen.
+* `vab` markiert einen Block inklusive der runden Klammern, `vaB` inklusive der geschweiften Klammern.
 
 > [!NOTE]
-> Mittels `Shift-(` oder `Shift-)` kann man sich Blockweise durch einen Text bzw. Code bewegen. Dadurch wird jeweils ein Codeblock hoch oder runter gesprungen.
+> Der Cursor muss für `vib`/`viB` innerhalb des jeweiligen Klammerpaares stehen. Bei Anführungszeichen genügt es, wenn sie in der aktuellen Zeile vorkommen.
 
-#### Horizontale Bewegung
+## Löschen
+
+Zur Sicherheit zuvor jeweils die Taste `Esc` drücken, damit du dich im `Normal`-Modus befindest.
 
 | Eingabe | Funktion |
 | :---: | :--- |
-| `ge` | Ans Ende des vorhergehenden Wortes springen |
-| `W` | Ein Wort nach vorne springen aber Zeichen wie `,` usw. ignorieren |
-| `B` | Ein Wort zurück springen aber Zeichen wie `,` usw. ignorieren |
-| `f-Zeichen` | Springt bis zum eingegeben `Zeichen`, mit `;` wird zum nächsten, mit `,` zum vorherigen Vorkommen von `Zeichen` gesprungen |
-| `vi-Zeichen` | Springt bis zum eingegeben `Zeichen` (z.B. `"`) und markiert den Text dazwischen im Visual-Mode (ändern eines Textes zwischen 2 `"`-Zeichen) |
-| `va-Zeichen` | Springt bis zum eingegeben `Zeichen` (z.B. `"`) und markiert den Text inkl. dem `Zeichen` im Visual-Mode |
-| `vib` | Wählt den nächsten Block innerhalb von runden Klammern `()` aus (der Cursor muss sich auf der entsprechenden Zeile befinden aber nicht zwingend im `()`-Block) |
-| `viB` | Wählt den Text innerhalb von geschweiften Klammern `{}` aus (der Cursor muss sich hierzu im gewünschten Block befinden) |
-| `yi-Zeichen` | Springt bis zum eingegeben `Zeichen` (z.B. `"`) und yankt (kopiert) den Text dazwischen im Visual-Mode (kopieren eines Textes zwischen 2 `"`-Zeichen) |
-| `ya-Zeichen` | Springt bis zum eingegeben `Zeichen` (z.B. `"`) und yankt (kopiert) den Text inkl. der `"`-Zeichen im Visual-Mode (kopieren eines Textes inkl. der 2 `"`-Zeichen) |
-| `0` | An den Anfang einer Zeile springen (immer auf Spalte 1), bleibt im Normal-Modus |
-| `$` | An das Ende einer Zeile springen (letztes Zeichen), bleibt im Normal-Modus |
-| `(`, `)` | An den Anfang bzw. das Ende des Satzes springen |
-| `{`, `}` | An den Anfang bzw. das Ende des Absatzes springen |
-| `*` | Benutzt man `*` (`Shift-3`) auf einem Wort unter dem Cursor, wird dieses als Suchbegriff definiert und direkt zum nächsten Vorkommen dessen gesprungen, man kann sich nun mittels `n` in der Suche vorwärts oder mit `N` in der Suche Rückwärts bewegen |
+| `x` | Zeichen unter dem Cursor löschen |
+| `dw` | Von der Cursor-Position bis zum Beginn des nächsten Wortes löschen (inkl. Leerzeichen) |
+| `de` | Von der Cursor-Position bis zum Ende des aktuellen Wortes löschen |
+| `diw` | Wort löschen – der Cursor kann irgendwo im Wort stehen |
+| `d$` oder `D` | Von der Cursor-Position bis zum Ende der Zeile löschen |
+| `dd` | Ganze Zeile löschen |
+| `2dd` | Die aktuelle und die darunterliegende Zeile löschen (allgemein: `Ndd` löscht N Zeilen) |
+| `dG` | Von der aktuellen Zeile bis zum Dateiende löschen (zeilenweise) |
 
-> [!TIP]
-> Um einen Block inkl. der entsprechenden Klammern zu markieren, verwendet man `vab` (für runde `()` Klammern), bzw. `vaB` (für geschweifte `{}` Klammern).  
-> Um einen Block mit eckigen Klammern zu markieren, verwendet man die Eingabe `vi[`, bzw. `va[` - dies funktioniert natürlich auch mit anderen Zeichen und auch anstelle von `vib` (`vi(`) oder `viB` (`vi{`). Ebenso funktioniert dies auch mit den `va...`-Alternativen (für die Auswahl inkl. der Klammern).
+## Ändern und Ersetzen
+
+Mit dem Change-Operator `c` in Kombination mit einer Bewegung werden Zeichen gelöscht und der Insert-Modus wird sofort gestartet.
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `r` | Zeichen unter dem Cursor durch das nächste getippte Zeichen ersetzen (bleibt im Normal-Modus) |
+| `cw` oder `ce` | Von der Cursor-Position bis zum Ende des aktuellen Wortes ändern |
+| `c$` oder `C` | Von der Cursor-Position bis zum Ende der Zeile ändern |
+| `cc` | Ganze Zeile ändern |
+| `ciw` | Das ganze Wort ändern, egal wo der Cursor im Wort steht (**C**hange **I**nner **W**ord) |
+
+## Gross-/Kleinschreibung ändern
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `~` | Gross-/Kleinschreibung des Zeichens unter dem Cursor umschalten und den Cursor nach rechts bewegen |
+| `4g~w` | Gross-/Kleinschreibung der nächsten 4 Wörter umschalten |
+| `4guw` | Die nächsten 4 Wörter in Kleinbuchstaben umwandeln (aus `HALLO` wird `hallo`) |
+| `4gUw` | Die nächsten 4 Wörter in Grossbuchstaben umwandeln (aus `hallo` wird `HALLO`) |
 
 > [!NOTE]
-> Bewegungen wie beispielsweise Satz- oder Absatzbewegungen lassen sich auch sehr gut mit Operatoren kombinieren, wodurch diese sehr mächtig werden.  
-> So lässt sich z.B. mittels `dis` der aktuelle Satz (ohne nachfolgende Leerzeichen) löschen, mittels `das` der aktuelle Satz (inkl. Leerzeichen) löschen, `vip` markiert den aktuellen Absatz im Visual-Mode und `yap` kopiert (yankt) den gesamten Absatz.
+> Bei der CH- bzw. DE-Tastaturbelegung ist `~` eine Tottaste. Daher muss nach dem Tippen von `~` zusätzlich ein `Leerzeichen` eingegeben werden.
 
-#### Marker
+> [!TIP]
+> Viele Befehle lassen sich auch mit dem Visual-Modus umsetzen. So ändert `v4w` gefolgt von `gU` die nächsten 4 Wörter ebenfalls in Grossbuchstaben.
+
+## Kopieren, Einfügen und Register
+
+Das Kopieren heisst in Vim «yank» (`y`), das Einfügen «put» (`p`). Wie beim Löschen wird `y` mit einer Bewegung oder einem Text-Objekt kombiniert.
 
 | Eingabe | Funktion |
 | :---: | :--- |
-| `ma` | Markierung setzen - dabei ist `a` variabel und kann durch jeden möglichen Buchstaben ersetzt werden |
-| `'a` | Zur gespeicherten Markierung (`a`) an den Anfang der Zeile springen |
-| `` `a `` | Zur gespeicherten Markierung (`a`) springen und zwar exakt zur Zeile und Spalte wo `a` gespeichert wurde |
+| `yy` | Aktuelle Zeile kopieren |
+| `yw` | Von der Cursor-Position bis zum Beginn des nächsten Wortes kopieren |
+| `yiw` | Das Wort unter dem Cursor kopieren |
+| `yi"` / `ya"` | Text zwischen Anführungszeichen kopieren (ohne / mit den Zeichen) |
+| `p` | Zwischengespeicherten Inhalt nach dem Cursor einfügen (bei ganzen Zeilen: unterhalb der aktuellen Zeile) |
+| `P` | Zwischengespeicherten Inhalt vor dem Cursor einfügen (bei ganzen Zeilen: oberhalb der aktuellen Zeile) |
 
-Da es sowohl Lokale als auch Globale Markierungen gibt, ist folgendes zu beachten:
+### Register
 
-| Typ | Buchstabe | Reichweite & Verhalten |
-| :--- | :---: | :--- |
-| Lokale Marker | `a` bis `z` | Gilt nur innerhalb der aktuellen Datei. Du kannst `ma` in Datei X und `ma` in Datei Y unabhängig voneinander nutzen. |
-| Globale Marker | `A` bis `Z` | Gilt dateiübergreifend. Wenn du in Datei X `mA` drückst, später Datei Y bearbeitest und `'A` drückst, öffnet Vim automatisch wieder Datei X und springt zur Position. |
+Vim besitzt einen sehr mächtigen Zwischenspeicher, die sogenannten Register. Mit dem Befehl `:reg` (Enter nicht vergessen) werden alle Register mit den aktuell gespeicherten Werten angezeigt. Das Fenster lässt sich mit `q` wieder schliessen.
 
-**Integrierte Marker:**
-Vim setzt viele nützliche Marker ganz automatisch, ohne dass man diese zuerst speichern muss.
+| Eingabe | Funktion |
+| :---: | :--- |
+| `"3p` | Inhalt aus Register 3 einfügen |
+| `"ayy` | Aktuelle Zeile in Register `a` kopieren |
+| `"ap` | Inhalt aus Register `a` einfügen |
+| `"+y` | In die Zwischenablage des Betriebssystems kopieren |
+| `"+p` | Aus der Zwischenablage des Betriebssystems einfügen |
+| `Ctrl-r "` | (Insert-Modus) Inhalt des unbenannten Registers einfügen |
 
-* `''` (Zwei Apostrophe): Springt zurück zur letzten Position, an der du vor dem aktuellen Sprung warst (perfekt nach `G` oder `gg`).
-* `'.` (Apostroph + Punkt): Springt zur letzten bearbeiteten Zeile.
-* `'^` (Apostroph + Caret): Springt zur letzten Einfügeposition (wichtig, wenn du im Insert-Modus warst).
-* `'[.` und `']:`: Springen zum Anfang bzw. Ende des zuletzt veränderten oder eingefügten Textes.
+> [!NOTE]
+> Mit `"` wird der Zugriff auf ein bestimmtes Register eingeleitet (gefolgt von einer Nummer oder einem Zeichen), danach folgt der eigentliche Befehl (z. B. `p`).
+> Die speziellen Register `+` und `*` greifen je nach Betriebssystem auf die Zwischenablage des Betriebssystems zu. So lassen sich in Vim kopierte Inhalte in anderen Programmen einfügen (und umgekehrt).
 
-**Übersicht behalten:**  
-Wenn du mal vergessen hast, welche Marker du gesetzt hast, hilft der Befehl `:marks` weiter.
+### Beispiel: Ein Wort fett formatieren
 
-> [!TIP]
-> Drückt man an einer betimmten Position im Dokument (wo man gerade was am bearbeiten ist) die Tastenkombination `Ctrl-G`, werden Informationen zur Datei und die Zeile auf der der Cursor aktuell steht unten am Bildschirm angezeigt.
-> Merkt man sich hier die Zeilennummer, kann man sich durch das Dokument bewegen, um was nachzusehen und später durch Eingabe von `Zeilennummer-G` wieder zur Position zurück kehren.
+Ein Wort in einem Markdown-Text soll **fett** werden. Positioniere den Cursor irgendwo im Wort und gib im Normal-Modus folgende Tastenfolge ein:
 
-## Rückgängig machen (Undo)
+```text
+viwc**<Ctrl-r>"**<Esc>
+```
 
-Natürlich ist es auch in Vim möglich, Aktionen (Befehle) rückgängig zu machen. Allerdings NICHT mittels der in GUI-Anwendungen gebräuchlichen Tastenkombination `Ctrl + Z`, sondern durch Eingabe von `u` um das letzte Komando Schritt-für-Schritt rückgängig zu machen oder `U` um eine ganze Zeile wiederherzustellen.
-
-## Wiederherstellen (Redo)
-
-Auch Wiederherstellen, mittels `Ctrl + R`, funktioniert in Vim. Dadurch wird jeweils das letzte rückgängig gemachte Kommando (durch `u`) quasi rückgängig gemacht. Die Besonderheit hier ist, dass dies auch im Insert-Modus funktioniert.
-
-**Beispiel:**  
-Ich möchte in einem Text, auf einer Zeile bzw. in einem Absatz, ein Wort z.B. **Fett** schreiben. Dann kannst du den Cursor irgendwo in diesem Wort positionieren, den Befehl `viwc**<Ctrl + R>"**<ESC>` eingeben und schon hast du das Wort **Fett** geschrieben.
-
-**Was ist nun passiert?**
+**Was ist passiert?**
 
 1. `viw` markiert das ganze Wort.
 2. `c` schneidet das Wort aus und wechselt in den Insert-Modus.
-3. `**` die .md-Formatierungszeichen für **Fett** eingeben.
-4. `Ctrl + R + "` fügt das Wort aus dem Zwischenspeicher `"` wieder ein.
-5. `**` die abschliessenden .md-Formatierungszeichen eingeben.
-6. `<ESC>` drücken um wieder in den Normal-Modus zu gelangen.
-7. Um die Formatierung auf weitere Wörter anzuwenden, mittels `w` zum nächsten Wort springen und `.` tippen (lässt sich mehrfach wiederholen) - Fertig!
+3. `**` gibt die öffnenden Markdown-Formatierungszeichen für **Fett** ein.
+4. `Ctrl-r "` fügt das ausgeschnittene Wort aus dem unbenannten Register `"` wieder ein.
+5. `**` gibt die schliessenden Formatierungszeichen ein.
+6. `Esc` wechselt zurück in den Normal-Modus.
+7. Um die Formatierung auf weitere Wörter anzuwenden, mit `w` zum nächsten Wort springen und `.` tippen (lässt sich beliebig oft wiederholen).
 
-## Einfügen, Ersetzen und Ändern
+## Wiederholen mit dem Punkt
 
-### Einfügen (Put)
+Mit `.` wird die letzte Änderung wiederholt. Wurde zuvor z. B. `diw` ausgeführt, springt man mit `w` zum nächsten Wort und wiederholt dort mit `.` den Befehl `diw`, ohne ihn erneut einzugeben. Das funktioniert mit den meisten Änderungsbefehlen – einfach ausprobieren.
 
-Vim besitzt einen sehr mächtigen Zwischenspeicher (auch Register genannt). Kleiner Tipp hierzu: Gibt man im Normal-Modus `:reg` ein, werden einem alle Register mit den aktuell darin gespeicherten Werten angezeigt. Solange dieses "Register"-Fenster aktiv ist, lässt es sich mittels `q` wieder schliessen.
+> [!TIP]
+> Auch die Wiederholung lässt sich mit einem Zähler kombinieren, z. B. wiederholt `3.` die letzte Änderung dreimal.
 
-| Eingabe | Funktion |
-| :---: | :--- |
-| `p` | Zuletzt in den Zwischenspeicher (Register) gespeicherten `y` Inhalt auf der nächsten Zeile einfügen |
-| `"3p` | Inhalt aus Zwischenspeicher (Register) 3 einfügen |
+## Rückgängig machen und Wiederherstellen
 
-> [!NOTE]
-> Mittels `"` wird der Zugriff auf ein spezifisches Register, gefolgt von einer Nummer oder einem Zeichen, eingeleitet und mittels `...p` dann schliesslich eingefügt.
-> Es gibt noch spezielle Register wie `+` und `*` die je nach Betriebssytem auf den Zwischenspeicher des Betriebssystems zugreifen können und somit in Vim gespeicherte Inhalte in allen anderen Programmen mittels `Ctrl + V` einfügen können.
-
-### Ändern (Change)
-
-Mit dem Change-Befehl `c` in Kombination mit einer Bewegungsfunktion (z.B. `ce`) können mehrere Zeichen schnell und einfach geändert werden.
+Auch in Vim lassen sich Änderungen rückgängig machen, allerdings **nicht** mit `Ctrl-z`. Im Terminal schickt `Ctrl-z` Vim in den Hintergrund (Rückkehr mit `fg`).
 
 | Eingabe | Funktion |
 | :---: | :--- |
-| `ce` | Ändern ab Cursor-Position bis zum Ende des aktuellen Wortes |
-| `c$` | Ändern ab Cursor-Position bis zum Ende der Zeile (Absatzes) |
-| `ciw` | Egal an welcher Stelle in einem Wort sich der Cursor gerade befindet, es wird das ganze Wort (**C**hange**I**nner**W**ord) geändert |
+| `u` | Letzte Änderung rückgängig machen (wiederholbar, Schritt für Schritt) |
+| `Ctrl-r` | Rückgängig gemachte Änderung wiederherstellen (Redo, im Normal-Modus) |
+| `U` | Alle Änderungen in der zuletzt bearbeiteten Zeile rückgängig machen (ein weiteres `U` macht dies rückgängig) |
+
+## Visual-Modus in der Praxis
+
+Im Visual-Modus wird zuerst ausgewählt und danach ein Operator angewendet. Das ist besonders für Einsteiger intuitiv.
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `v` | Zeichenweise auswählen |
+| `Shift-v` (`V`) | Zeilenweise auswählen |
+| `Ctrl-v` | Blockweise (spaltenweise) auswählen |
+| `o` | Zwischen Anfang und Ende der Auswahl wechseln |
+| `gv` | Letzte Auswahl erneut markieren |
+| `d`, `c`, `y`, `gU` | Operator auf die Auswahl anwenden (löschen, ändern, kopieren, in Grossbuchstaben umwandeln) |
+
+> [!TIP]
+> Ein Beispiel für die Kombination mit Text-Objekten: `vi"` markiert den Text zwischen Anführungszeichen, danach ändert `c` den markierten Text.
+
+## Suchen
+
+Drücke `Esc`, um sicher im `Normal`-Modus zu sein. Tippe dann `/` direkt gefolgt vom Suchbegriff, zum Beispiel `/Woort` (bestätigen mit `Enter`). Das ist das Wort oder (in diesem Fall) der Tippfehler, nach dem du suchen willst.
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `/Begriff` | Vorwärts nach `Begriff` suchen |
+| `?Begriff` | Rückwärts nach `Begriff` suchen |
+| `n` | Zum nächsten Treffer springen (**N**ext) |
+| `N` | Zum vorherigen Treffer springen (Gegenrichtung) |
+| `*` | Das Wort unter dem Cursor vorwärts suchen (ganzes Wort), danach mit `n` bzw. `N` weitersuchen |
+| `#` | Das Wort unter dem Cursor rückwärts suchen (ganzes Wort) |
+
+> [!TIP]
+> Bist du mittels Suche an der gewünschten Stelle angekommen und möchtest danach wieder zur vorherigen Position zurück, drücke `Ctrl-o` (vorwärts: `Ctrl-i`).
 
 ## Suchen und Ersetzen
 
-### Suchen
+`:s/alt/neu/` ersetzt auf der aktuellen Zeile das erste Vorkommen von `alt` durch `neu`. Mit Flags lässt sich das Verhalten steuern:
 
-Auch hier wieder darauf achten, dass man sich im `Normal`-Modus befindet!
-Nun tippe auf der Tastatur `/` direkt gefolgt vom Suchbegriff ein, zum Beispiel `/Woort`. Das ist das Wort oder (in diesem Fall) der Fehler nach dem du suchen willst.
-Um nach demselben Ausdruck weiterzusuchen, tippe `n` für Next. Um nach demselben Ausdruck in der Gegenrichtung zu suchen, tippe `N`.
-Um direkt rückwärts statt vorwärts zu suchen, tippe `?` statt `/`.
+* `g` (global): Alle Treffer in der Zeile ersetzen, nicht nur den ersten.
+* `c` (confirm): Bei jedem Treffer nachfragen.
 
-> [!TIP]
-> Wenn du mittels Suche an der Stelle angekommen bist, an der du bearbeiten möchtest, aber danach wieder in der Historie zurück kehren möchtest, tippe `Ctrl-O`. Möchtest du stattdessen in der Historie vorwärts springen, tippe `Ctrl-I`.
-> Diese Tastenkombinationen sind vergleichbar mit dem Zurück- und Vorwärts-Button in einem Webbrowser. Dies funktioniert auch, wenn du zum Beispiel mittels `gg` oder `G` an den Anfang oder das Ende deines Dokuments springst und danach wieder an die letzte Position zurück willst.
-
-### Spezial - Passende Klammern finden
-
-Durch tippen von `%` während der Cursor auf einer Klammer `(`, `[` oder `{` steht, bewegt sich der Cursor immer zur passenden gegenüberliegenden Klammer. Dies funktioniert in beide Richtungen, je nachdem, ob der Cursor auf der Öffnenden oder Schliessenden Klammer steht.
-
-> [!NOTE]
-> Diese Funktionalität kann vor allem beim bearbeiten von Programmcode sehr hilfreich und nützlich sein, um fehlende Klammern zu finden.
-
-### Ersetzen (Substitute)
-
-Hier, wie bei den meisten Befehlen, ebenfalls darauf achten, dass man sich im `Normal`-Modus befindet.  
-Wenn du `:s/alt/neu/g` tippst, wird auf der aktuellen Zeile nach dem Begriff `alt` gesucht und dieser durch `neu` ersetzt. Das `/g` am Ende der Eingabe bedeutet, dass die ganze aktuelle Zeile bzw. der Absatz durchsucht und jeder gefundene Begriff `alt` direkt durch `neu` ersetzt wird.  
-Um das ganze Dokument nach einem Begriff (z.B. Variablenname) zu durchsuchen und zu ersetzen, tippst du `:%s/alt/neu/g`. Um nicht direkt alles zu ersetzen, sondern mittels Abfrage zu jedem gefunden Begriff zu ersetzen, tippst du `:%s/alt/neu/gc`. Dadurch wirst du bei jedem gefundenen Begriff, mittels Abfragedialog, gefragt, ob dieser ersetzt werden soll oder nicht.  
-Es können auch nur Suchbegriffe auf mehreren, spezifischen und aufeinader folgenden Zeilen ersetzt werden. Hierfür tippst du einfach `:#,#s/alt/neu/g`, wobei `#,#` die Zeilennummern des Bereichs sind. Auch hier kannst du stattdessen `:#,#s/alt/neu/gc` eingeben, damit bei jedem Treffer ein Abfragedialog angezeigt wird.
+Der Bereich vor dem `s` bestimmt, wo ersetzt wird: `%` steht für das ganze Dokument, `5,12` für die Zeilen 5 bis 12.
 
 | Eingabe | Funktion |
 | :---: | :--- |
-| `:s/alt/neu/g` | In aktueller Zeile nach dem Begriff `alt` suchen und jeden Treffer (`/g`) durch `neu` ersetzen |
-| `:%s/alt/neu/gc` | Im aktuellen Dokument nach dem Begriff `alt` suchen und diesen mittels Abfragedialog durch `neu` ersetzen - `../gc` bedeutet `g`=Global (alle Treffer je Zeile, nicht nur den Ersten) und `c` mittels Abfragedialog |
-| `:#,#s/alt/neu/g` | In aufeinander folgenden Zeilen `#,#`, wobei `#,#` für die einzuschliessenden Zeilennummern steht, `alt` durch `neu` ersetzen und `/g` dabei alle Treffer berücksichtigen (nicht nur den Ersten) |
+| `:s/alt/neu/g` | Auf der aktuellen Zeile alle Treffer von `alt` durch `neu` ersetzen |
+| `:%s/alt/neu/g` | Im ganzen Dokument alle Treffer ersetzen (z. B. Variablennamen) |
+| `:%s/alt/neu/gc` | Im ganzen Dokument ersetzen, bei jedem Treffer nachfragen |
+| `:5,12s/alt/neu/g` | Nur in den Zeilen 5 bis 12 ersetzen |
+| `:5,12s/alt/neu/gc` | Nur in den Zeilen 5 bis 12 ersetzen, bei jedem Treffer nachfragen |
+| `:'<,'>s/alt/neu/g` | Nur im markierten (Visual-)Bereich ersetzen |
+
+> [!NOTE]
+> Drückt man im Visual-Modus `:`, erscheint automatisch `'<,'>` in der Befehlszeile. Das ist der markierte Bereich.
 
 ## Sortieren
 
-Auch die alphabetische Sortierung kann Vim bzw. Neovim!  
-Möchte man beispielsweise die folgende Liste mit Wörtern sortieren, setzt man den Cursor an die Position des Ersten oder Letzten Wortes der Liste und markiert die ganze Liste mit dem Visual-Line-Modus `Shift-v`, wechselt in den Comand-Line-Modus indem man `:sort` eingibt.  
-  
-Hier eine Beispielliste zum testen:
+Auch die alphabetische Sortierung beherrscht Vim bzw. Neovim!  
+Möchte man beispielsweise die folgende Liste sortieren, setzt man den Cursor in die Liste, markiert sie mit `vip` (oder zeilenweise mit `Shift-v`) und gibt `:sort` ein (bestätigen mit `Enter`).
+
+Beispielliste zum Testen:
 
 ```text
 apples
@@ -302,23 +445,37 @@ oranges
 grapes
 cigarettes
 kiwis
-raspberrys
+raspberries
 ```
 
 | Eingabe | Funktion |
 | :---: | :--- |
-| `:sort i` | Gross-/Kleinschreibung ignorieren (Standardmässig kommen Grossbuchstaben zuerst) |
-| `:sort u` | Duplikate entfernen (sortiert die Liste und löscht doppelte Einträge raus) |
-| `:sort n` | Nummerisch sortieren (sinnvoll wenn Zeilen mit Zahlen beginnen) |
+| `:sort` | Alphabetisch sortieren |
+| `:sort i` | Gross-/Kleinschreibung ignorieren (standardmässig kommen Grossbuchstaben zuerst) |
+| `:sort u` | Duplikate entfernen (sortiert die Liste und löscht doppelte Einträge) |
+| `:sort n` | Numerisch sortieren (sinnvoll, wenn Zeilen mit Zahlen beginnen) |
 
 > [!TIP]
-> Um die Liste aus dem Beispiel oben nun sortiert auf einer Zeile mit `,` getrennt auszugeben, kann man die ganze Liste mittels `vip` (den ganzen Absatz-Block markieren) auswählen und anschliessend mittels `:sort` alphabetisch sortieren, mittels `gv` die zuvor markierte Auswahl erneut auswählen und mit `:s/\n/, /` auf einer Zeile ausgeben.
-> Ein etwas einfacherer Weg aber ohne `,` geht mittels `J`. Das heisst, zuerst wieder alles markieren mittels `vip`, sortieren `:sort`, vorherige Markierung erneut auswählen `gv` und mittels `J` auf einer Zeile getrennt durch ein Leerzeichen ausgeben.
+> So bringst du die Beispielliste sortiert und durch Kommas getrennt in eine Zeile:
+>
+> 1. `vip` markiert die ganze Liste.
+> 2. `:sort` und `Enter` sortieren die Auswahl.
+> 3. `gv` markiert die Auswahl erneut.
+> 4. `:s/\n/, /` und `Enter` ersetzen die Zeilenumbrüche durch `, `.
+>
+> Einfacher, aber ohne Komma, geht es mit `J`: Liste mit `vip` markieren, mit `:sort` sortieren, mit `gv` erneut markieren und mit `J` in eine Zeile zusammenführen (getrennt durch ein Leerzeichen).
 
 ## Arbeiten mit Zahlen
 
-Auch mit Zahlen kann Vim bzw. Neovim erstaunliches anstellen.  
-Angenommen man hat das nachfolgende Szenario und möchte die Zahlen der Reihe nach durchnummeriert haben, markiert man alle Zahlen, die geändert werden sollen (erste Null nicht, die soll so bleiben) mittels dem Visual-Block-Modus `Ctrl-v` oder mittels dem Visual-Line-Modus `Shift-v`. Danach den Befehl `g Ctrl-a` verwenden und die Zahlen werden automatisch korrekt durchnummeriert.
+Auch mit Zahlen kann Vim bzw. Neovim Erstaunliches anstellen.
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `Ctrl-a` | Zahl unter bzw. nach dem Cursor um 1 erhöhen |
+| `Ctrl-x` | Zahl unter bzw. nach dem Cursor um 1 verringern |
+| `g` + `Ctrl-a` | (Visual-Modus) Zahlen der Auswahl fortlaufend hochzählen |
+
+Angenommen, du möchtest die folgenden Zahlen der Reihe nach durchnummerieren. Markiere alle Zeilen ausser der ersten Null (diese soll so bleiben) mit dem Visual-Block-Modus (`Ctrl-v`) oder dem Visual-Line-Modus (`Shift-v`). Drücke danach `g` und anschliessend `Ctrl-a`. Die Zahlen werden automatisch fortlaufend durchnummeriert.
 
 ```text
 0
@@ -334,53 +491,63 @@ Angenommen man hat das nachfolgende Szenario und möchte die Zahlen der Reihe na
 0
 ```
 
->[!TIP]
-> Um sich direkt eine sortierte Liste von aufeinanderfolgenden Zahlen auszugeben, den Befehl `:put =range(0,6)` eingeben und man erhällt eine vertikale Liste mit den Zahlen `0 - 6`. Um diese ggf. hintereinander, durch Leerzeichen getrennt, auszugeben, den Befehl `vip` gefolgt von `J` eingeben.
+> [!TIP]
+> Um sofort eine Liste aufeinanderfolgender Zahlen zu erzeugen, gib `:put =range(0,6)` ein. Du erhältst eine vertikale Liste mit den Zahlen `0` bis `6`. Um diese hintereinander, durch Leerzeichen getrennt, auszugeben, markiere sie mit `vip` und drücke `J`.
 
-## Spezielle Befehle (Vertiefung)
-
-### Umgang mit Buffers und Fenstern
-
-| Eingabe | Funktion |
-| :---: | :--- |
-| `:vsplit Datei` | Vim kann auch geteilte Fenster! Öffnet die `Datei` in der rechten Fensterhälfte |
-| `:hsplit Datei` | Öffnet die `Datei` in der unteren Fensterhälfte |
-| `Ctrl-h` | In das linke Fenster (Fensterhälfte) wechseln - funktioniert mit allen Bewegungstasten `h, j, k, l` (teilweise, je nach Konfiguration muss `Ctrl-w-h` oder ähnlich verwendet werden) |
-| `Shift-h` | Durch Tabs/Buffer schalten - vorheriger Buffer |
-| `Shift-l` | Durch Tabs/Buffer schalten - nächster Buffer |
-| `:b#` | Wechselt direkt zum zuletzt genutzten Buffer |
-| `Space-f-b` | Durchsuchbare Liste mit allen offenen Buffern anzeigen - funktioniert nur mit LazyVim |
-
-> [!NOTE]
-> Mit Buffer sind geöffnete Dateien in der aktuellen Vim-Sitzung gemeint!
-> Man kann in Vim mehrere Dateien gleichzeitig geöffnet haben und dann mit den entsprechenden Befehlen zwischen diesen hin und her wechseln, auch wenn diese ggf. nicht direkt sichtbar sind.
+## Dateien, Buffer und Fenster
 
 ### Bearbeiten, Speichern und Schliessen
 
 | Eingabe | Funktion |
 | :---: | :--- |
-| `:e pfad/datei` | Wenn Vim bereits geöffnet ist, eine Datei im aktuellen Verzeichnis oder aus einem anderen Verzeichnis zum bearbeiten öffnen |
-| `:w` | Aktuelle Datei (Buffer) die auf dem Bildschirm sichtbar bzw. aktiv ist speichern |
-| `:q` | Aktuell am Bildschirm sichtbares bzw. aktives Fenster schliessen - enthält dieses nicht gespeicherte Änderungen, wird eine entsprechende Meldung ausgegeben (Datei ist jedoch nach wie vor im Buffer) |
-| `:bd` | Aktuellen Buffer schliessen (Datei ist anschliessend nicht mehr im Speicher) |
-| `:bd #` | Buffer mit Nummer `#` schliessen |
+| `:e pfad/datei` | Eine Datei (aus dem aktuellen oder einem anderen Verzeichnis) zum Bearbeiten öffnen, wenn Vim bereits läuft |
+| `:w` | Aktuelle Datei (aktiven Buffer) speichern |
+| `:q` | Aktives Fenster schliessen. Bei ungespeicherten Änderungen wird eine Meldung ausgegeben und das Fenster bleibt offen |
+| `:bd` | Aktuellen Buffer schliessen (die Datei ist anschliessend nicht mehr im Speicher) |
+| `:bd N` | Buffer mit der Nummer `N` schliessen |
 
-### Konsole öffnen
-
-Um hier ein Konsolenfenster zu öffnen, stehen folgende Befehle zur Verfügung:
-
-* `Space-f-t`: Öffnet ein Terminal im aktuellen Verzeichnis (nur Neovim mit LazyVim).
-* `Space-f-T`: Öffnet ein Terminal im Root-Verzeichnis des Projekts (nur Neovim mit LazyVim).
-* `:term`: Öffnet das Terminal im aktuellen Fenster.
-* `:split | term`: Öffnet das Terminal in einem horizontalen Split-Fenster.
-* `:vsplit | term`: Öffnet das Terminal in einem vertikalen Split-Fenster.
-
-### Rechtschreibprüfung deaktivieren (nur Neovim mit LazyVim)
+### Buffer
 
 > [!NOTE]
-> Neovim ist hystorisch gesehen die umfangreichste und aktuellste Version, die aus Vi bzw. Vim abgeleteitet wurde.
-> LazyVim hingegen ist eine sehr mächtige Erweiterung zu Neovim, wodurch Neovim noch mächtiger und quasi zu einer vollwertigen IDE (Entwicklungsumgebung) wird.
+> Mit Buffer sind geöffnete Dateien in der aktuellen Vim-Sitzung gemeint. Man kann in Vim mehrere Dateien gleichzeitig geöffnet haben und mit den entsprechenden Befehlen zwischen ihnen wechseln, auch wenn sie nicht direkt sichtbar sind.
 
 | Eingabe | Funktion |
 | :---: | :--- |
-| `Space-u-s` | Rechtschreibprüfung deaktivieren |
+| `:ls` | Alle geöffneten Buffer auflisten |
+| `:bnext` / `:bprev` | Zum nächsten bzw. vorherigen Buffer wechseln |
+| `:b#` | Zum zuletzt genutzten Buffer wechseln |
+
+### Fenster teilen und wechseln
+
+Vim kann auch geteilte Fenster!
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `:split Datei` | Datei in einem horizontal geteilten Fenster öffnen (oberes/unteres Fenster) |
+| `:vsplit Datei` | Datei in einem vertikal geteilten Fenster öffnen (linkes/rechtes Fenster) |
+| `Ctrl-w h/j/k/l` | Zwischen den Fenstern wechseln (links/unten/oben/rechts) |
+
+## Terminal in Vim
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `:term` | Terminal im aktuellen Fenster öffnen |
+| `:split \| term` | Terminal in einem horizontal geteilten Fenster öffnen |
+| `:vsplit \| term` | Terminal in einem vertikal geteilten Fenster öffnen |
+
+## Neovim und LazyVim
+
+> [!NOTE]
+> Neovim ist historisch gesehen eine moderne Weiterentwicklung von Vi bzw. Vim.
+> LazyVim hingegen ist eine sehr mächtige Konfiguration für Neovim, die es quasi zu einer vollwertigen IDE (Entwicklungsumgebung) macht.
+> Die folgenden Tastenkombinationen funktionieren nur mit Neovim und LazyVim.
+
+| Eingabe | Funktion |
+| :---: | :--- |
+| `Ctrl-h` / `Ctrl-j` / `Ctrl-k` / `Ctrl-l` | Zwischen Fenstern wechseln (alternativ `Ctrl-w h/j/k/l`) |
+| `Shift-h` | Vorheriger Buffer |
+| `Shift-l` | Nächster Buffer |
+| `Space f b` | Durchsuchbare Liste aller offenen Buffer anzeigen |
+| `Space f t` | Terminal im aktuellen Verzeichnis öffnen |
+| `Space f T` | Terminal im Root-Verzeichnis des Projekts öffnen |
+| `Space u s` | Rechtschreibprüfung ein-/ausschalten |
